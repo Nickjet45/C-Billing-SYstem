@@ -85,14 +85,10 @@ void billingSystem:: payBill(double costToPay){
 
 //Returns the name of the bill being indexed
 std::string billingSystem:: retrieveBillName(int i){
-    //If the program indexes outside of the vector return "null"
-    //Else return the value of the vector at which it's being indexed
-    if(i > numberOfBills){
-        return "null";
-    }
-    else{
-        return typeOfBill[i];
-    }
+    //return the value of the vector at which it's being indexed
+
+    return typeOfBill[i];
+
 }
 
 //Returns the cost of the bill being indexed
@@ -139,9 +135,12 @@ int main(){
     //Simulates the user dedicing to pay X amount
     for(int i = 0; i < numberOfUsers; i++){
         std:: cout << "These are the bills that you have with us: \n ";
+        
         for(int k = 0; k <billing[i].totalNumberofBills(); k++){
+
             std::cout << billing[i].retrieveBillName(k) << std::endl;
         }
+
         //Stores the amount the user wishes to pay, for their current balance, into amountToPay
         std::cout << "How much of your outstanding balance would you like to pay off? \n"
                   << "Your current outstanding balance is: " << billing[i].outstandingBalance() << std::endl;
