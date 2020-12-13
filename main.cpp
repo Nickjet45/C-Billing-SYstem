@@ -146,6 +146,8 @@ int main(){
         //Stores the amount the user wishes to pay, for their current balance, into amountToPay
         std::cout << "How much of your outstanding balance would you like to pay off? \n"
                   << "Your current outstanding balance is: " << billing[i].outstandingBalance() << std::endl;
+        
+        std::cout << "I would like to pay: $";
         std::cin >> amountToPay;
 
         billing[i].payBill(amountToPay);
