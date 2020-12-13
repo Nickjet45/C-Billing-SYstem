@@ -109,6 +109,8 @@ ipch/
 
 //Visual Studio code .vscode
 .vscode
+settings.json
+
 # Visual Studio profiler
 *.psess
 *.vsp
