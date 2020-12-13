@@ -26,9 +26,14 @@ class billingSystem{
 
 void billingSystem:: getName(){
 
+    std::cout << "What is your name? ";
+
+    //Allows getline to function multiple times in a row
+    std::cin.ignore();
+
     getline(std::cin, userName); //Gets the name of the user
 
-    std::cout << "Hello " << userName << ", thank you for using our billing system";
+    std::cout << "Hello " << userName << ", thank you for using our billing system \n";
 
 }
 
@@ -37,7 +42,10 @@ void billingSystem:: getBill(){
     double enteredCost; //Holds the entered cost of the bill the user would like to enter into the system
 
     //Retrieves the bill from the user, stores it into enteredBill,and then pushes it into the vector typeOfBill
-    std::cout << "Hello" << userName << ", which bill would you like to enter into the system? ";
+    std::cout << "Hello " << userName << ", which bill would you like to enter into the system? ";
+
+    //Allows getline to function multiple times in a row
+    std::cin.ignore();
 
     getline(std::cin, enteredBill);
 
@@ -69,7 +77,10 @@ void billingSystem:: simulateMonth(){
 void billingSystem:: payBill(double costToPay){
     totalDebt -= costToPay;
     
-    std::cout << "Hello " << userName <<", we have received your payment";
+    //Acknowledges that the system has received the payment
+    std::cout << "Hello " << userName <<", we have received your payment \n";
+
+    //Tells the user their new outstanding balance after the payment has been processed
     std::cout << "Your remaining balance after your payment of: $" << costToPay << " is: $" << totalDebt; 
 }
 
@@ -97,6 +108,7 @@ int billingSystem:: totalNumberofBills(){
 
 int main(){
     int numberOfUsers, billsToAdd;
+    double amountToPay;
     billingSystem *billing;
 
     //Tells the program how many users to be created
@@ -109,7 +121,7 @@ int main(){
     //Loops over the number of users created and fills in information for them
     for(int i = 0; i < numberOfUsers; i++){
         billing[i].getName(); //Stores the name of an individual into the object
-        std::cout << "How many bills would you like to add?"; //Tells the program how many bills the user would like to add for X person
+        std::cout << "How many bills would you like to add? "; //Tells the program how many bills the user would like to add for X person
         std::cin >> billsToAdd;
 
         //Loops over the number of bills to add and continually add them to the program, along with their associated cost
@@ -127,14 +139,16 @@ int main(){
 
     //Simulates the user dedicing to pay X amount
     for(int i = 0; i < numberOfUsers; i++){
-        std:: cout << "These are the bills that you have with us: ";
+        std:: cout << "These are the bills that you have with us: \n ";
         for(int k = 0; k <billing[i].totalNumberofBills(); k++){
             std::cout << billing[i].retrieveBillName(k) << std::endl;
         }
-
+        //Stores the amount the user wishes to pay, for their current balance, into amountToPay
         std::cout << "How much of your outstanding balance would you like to pay off? \n"
-                  << "Your outstanding balance is: " << billing[i].outstandingBalance();
-        
+                  << "Your current outstanding balance is: " << billing[i].outstandingBalance() << std::endl;
+        std::cin >> amountToPay;
+
+        billing[i].payBill(amountToPay);
 
     }
 
