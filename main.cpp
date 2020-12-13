@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <fstream>
 
 //Creation of class to hold the type of bill, cost of bill, and total debt of the user
 
