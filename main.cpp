@@ -91,7 +91,7 @@ std::string billingSystem:: retrieveBillName(int i){
 
 }
 
-//Returns the cost of the bill being indexed
+//Returns the outstanding balance(debt) of the user
 double billingSystem:: outstandingBalance(){
     return totalDebt;
 }
