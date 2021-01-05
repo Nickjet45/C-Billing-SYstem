@@ -91,7 +91,7 @@ std::string billingSystem:: retrieveBillName(int i){
 
 }
 
-//Returns the cost of the bill being indexed
+//Returns the outstanding balance(debt) of the user being indexed
 double billingSystem:: outstandingBalance(){
     return totalDebt;
 }
@@ -132,7 +132,7 @@ int main(){
         billing[i].simulateMonth();
     }
 
-    //Simulates the user dedicing to pay X amount
+    //Simulates the user deciding to pay X amount
     for(int i = 0; i < numberOfUsers; i++){
         std:: cout << "These are the bills that you have with us: \n ";
         
