@@ -153,5 +153,5 @@ int main(){
     }
 
     //Deletion of pointers to return memory to space
-    delete billing;
+    delete[] billing;
 }
